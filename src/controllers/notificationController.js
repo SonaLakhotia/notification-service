@@ -10,7 +10,7 @@ export const handleNotification = async (req, res) => {
     const notification = req.body;
     //Storing the notifications in memory
     store(notification)
-    console.log(getNotifications())
+    //console.log(getNotifications())
 
     //Checking if the notification is of type warning
     if(notification.Type === 'Warning'){
