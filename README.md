@@ -24,14 +24,16 @@ POST /api/v1/notifications
   "Type": "Warning" | "Info",
   "Name": "string",
   "Description": "string"
-}```
+}
+```
 
 Example request:
 
+```bash
   curl -X POST http://localhost:5001/api/v1/notifications \
   -H "Content-Type: application/json" \
   -d '{"Type":"Warning","Name":"CPU Overload","Description":"Server CPU at 95%"}'
-
+```
 
 ## Running the service
 
