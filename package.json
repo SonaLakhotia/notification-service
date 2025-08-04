@@ -1,0 +1,31 @@
+{
+  "name": "notification-service",
+  "version": "1.0.0",
+  "description": "web service that receives notifications via a POST interface and forwards them to a Slack channel based on their type.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SonaLakhotia/notification-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SonaLakhotia/notification-service/issues"
+  },
+  "homepage": "https://github.com/SonaLakhotia/notification-service#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "supertest": "^7.1.4"
+  },
+  "devDependencies": {
+    "jest": "^30.0.5",
+    "nodemon": "^3.1.10"
+  }
+}
