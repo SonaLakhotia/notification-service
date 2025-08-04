@@ -4,7 +4,8 @@
   "description": "web service that receives notifications via a POST interface and forwards them to a Slack channel based on their type.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +14,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/SonaLakhotia/notification-service/issues"
   },
