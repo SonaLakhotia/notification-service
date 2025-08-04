@@ -1,5 +1,6 @@
 import { handleNotification } from "../../src/controllers/notificationController.js";
 import { getNotifications, clear } from "../../src/memory/storage.js";
+import { validate } from "../../src/utils/validator.js";
 import axios from "axios";
 
 jest.mock("axios");
@@ -19,4 +20,29 @@ test("Notification of type 'Warning' forwarded to the notifcation channel", asyn
   await handleNotification(req, res);
   expect(axios.post).toHaveBeenCalled();
 })
+
+test("Validates missing fields", async() => {
+  const req = { body : { Name: 'Testing Info', Description: 'Testing Info in store'}}
+  const res = { status: jest.fn().mockReturnThis(), json: jest.fn() }
+  const next = jest.fn();
+
+  validate(req, res, next);
+
+  await handleNotification(req, res)
+  expect(res.status).toHaveBeenCalledWith(400);
+  expect(res.json).toHaveBeenCalledWith({ error: "Missing fields"})
+});
+
+test("Validates Type of message", async() => {
+  const req = { body : { Type: 'ABC' ,Name: 'Testing ABC', Description: 'Testing ABC in store'}}
+  const res = { status: jest.fn().mockReturnThis(), json: jest.fn() }
+  const next = jest.fn();
+
+  validate(req, res, next);
+
+  await handleNotification(req, res)
+  expect(res.status).toHaveBeenCalledWith(400);
+  expect(res.json).toHaveBeenCalledWith({ error: "Invalid Notification Type"})
+});
+
 

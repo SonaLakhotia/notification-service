@@ -13,8 +13,8 @@ app.use(cors());
 app.use('/api/v1',notificationRoutes)
 app.use(handleError)
 
-app.listen(PORT, ()=>{
-  console.log(`Server is listening on PORT, ${PORT}`)
-})
-
+// app.listen(PORT, ()=>{
+//   console.log(`Server is listening on PORT, ${PORT}`)
+// })
+export const server = app.listen(PORT)
 export default app;
