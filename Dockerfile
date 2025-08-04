@@ -1,6 +1,10 @@
-FROM node
+FROM node:19-alpine
+
+COPY package.json /app/
+COPY src /app/
+
 WORKDIR /app
-COPY package.json /app
+
 RUN npm install
-COPY . /app
-CMD ["node","app.js"]
+
+CMD ["node", "app.js"]
