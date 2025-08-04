@@ -27,3 +27,7 @@ export const handleNotification = async (req, res) => {
     res.status(500).json({ message: "Internal server error"})
   }
 }
+
+export const welcome = async (req, res) => {
+  res.json({ message: 'Welcome to the services, Hello World!'})
+}
